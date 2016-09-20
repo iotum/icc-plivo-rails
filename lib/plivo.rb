@@ -338,7 +338,7 @@ module Plivo
 
     def mute_batch(params={})
       conference_name = params.delete('conference_name')
-      return request('POST', "/Conference/#{conference_name.name}/Member/Mute/", params)
+      return request('POST', "/Conference/#{conference_name}/Member/Mute/", params)
     end
     
     def unmute_member(params={})
@@ -349,7 +349,7 @@ module Plivo
 
     def unmute_batch(params={})
       conference_name = params.delete('conference_name')
-      return request('POST', "/Conference/#{conference_name.name}/Member/Unmute/", params)
+      return request('POST', "/Conference/#{conference_name}/Member/Unmute/", params)
     end
     
     def kick_member(params={})
