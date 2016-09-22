@@ -304,6 +304,11 @@ module Plivo
       member_id = params.delete('member_id')
       return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params)
     end
+
+    def play_batch(params={})
+      conference_name = params.delete('conference_name')
+      return request('POST', "/Conference/#{conference_name}/Member/Play/", params)
+    end
     
     def stop_play_member(params={})
       conference_name = params.delete('conference_name')
