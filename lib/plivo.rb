@@ -622,7 +622,7 @@ module Plivo
 
   class Play < Element
     @nestables = []
-    @valid_attributes = ['loop']
+    @valid_attributes = ['loop', 'level']
 
     def initialize(body, attributes={})
       if not body
@@ -746,7 +746,7 @@ module Plivo
                          'startOnDialAnswer', 'redirect', 'fileFormat',
                          'callbackUrl', 'callbackMethod',
                          'transcriptionType', 'transcriptionUrl',
-                         'transcriptionMethod']
+                         'transcriptionMethod', 'level']
 
     def initialize(attributes={})
       super(nil, attributes)
