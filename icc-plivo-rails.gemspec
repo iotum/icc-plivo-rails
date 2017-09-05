@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "icc-plivo-rails"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
   s.author = "Iotum"
   s.homepage = "https://bitbucket.org/iotum/icc-plivo-rails"
   s.license = "MIT"
