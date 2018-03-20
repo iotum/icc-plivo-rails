@@ -622,7 +622,7 @@ module Plivo
 
   class Play < Element
     @nestables = []
-    @valid_attributes = ['loop', 'level']
+    @valid_attributes = ['loop', 'level', 'type']
 
     def initialize(body, attributes={})
       if not body
