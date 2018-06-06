@@ -51,6 +51,8 @@ module Plivo
         end
         begin
           r = @rest[path].post params.to_json, :content_type => 'application/json'
+        rescue RestClient::ExceptionWithResponse => err
+          code = err.response
         rescue => e
           response = e
         end
