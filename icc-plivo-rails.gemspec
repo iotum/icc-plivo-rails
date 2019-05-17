@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "icc-plivo-rails"
-  s.version = "0.0.7"
+  s.version = "0.0.6"
   s.author = "Iotum"
   s.homepage = "https://bitbucket.org/iotum/icc-plivo-rails"
   s.license = "MIT"
@@ -14,7 +14,5 @@ Gem::Specification.new do |s|
   s.add_dependency("rest-client", ">= 1.6.7")
   s.add_dependency("json", ">= 1.6.6")
   s.add_dependency("htmlentities", ">= 4.3.1")
-  s.add_development_dependency("minitest", ">= 5.11.3")
-  s.add_development_dependency("minitest-reporters", ">= 1.1")
   s.extensions = "ext/mkrf_conf.rb"
 end
