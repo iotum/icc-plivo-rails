@@ -36,7 +36,7 @@ module Plivo
       @url = url.chomp('/')
       @version = version
       if @version == 'v1'
-        @api = @url + '/' + @version + '/Account/' + @auth_id
+        @api = "#{@url}/#{@version}/Account/#{@auth_id}"
       elsif @version == 'v2'
         @api = "#{@url}/Domain/#{domain}"
       else
