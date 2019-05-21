@@ -38,7 +38,7 @@ module Plivo
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
       elsif @version == 'v2'
-        @api = "#{@url}/Domain/#{domain}"
+        @api = "#{@url}/v2/Domain/#{domain}"
       else
         raise 'unsupported version'
       end
