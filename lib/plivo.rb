@@ -37,7 +37,7 @@ module Plivo
       @version = version
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
-      elsif @version == 'v2'
+      elsif @version == 'iotum-v2'
         @api = "#{@url}/v2/Domain/#{domain}"
       else
         raise 'unsupported version'
