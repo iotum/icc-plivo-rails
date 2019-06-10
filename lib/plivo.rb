@@ -30,12 +30,18 @@ module Plivo
   class RestAPI
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
-    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1")
+    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="")
       @auth_id = auth_id
       @auth_token = auth_token
       @url = url.chomp('/')
       @version = version
-      @api = @url + '/' + @version + '/Account/' + @auth_id
+      if @version == 'v1'
+        @api = "#{@url}/#{@version}/Account/#{@auth_id}"
+      elsif @version == 'iotum-v2'
+        @api = "#{@url}/v2/Domain/#{domain}"
+      else
+        raise 'unsupported version'
+      end
       @headers = {"User-Agent" => "RubyPlivo"}
       @rest = RestClient::Resource.new(@api, @auth_id, @auth_token)
     end

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "icc-plivo-rails"
-  s.version = "0.0.6"
+  s.version = "0.0.7"
   s.author = "Iotum"
   s.homepage = "https://bitbucket.org/iotum/icc-plivo-rails"
   s.license = "MIT"
@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.summary = "A Ruby gem for communicating with the ICC Platform"
   s.files = Dir["lib/*"]
-  s.has_rdoc = false
   s.extra_rdoc_files = ["README.md"]
   s.add_dependency("builder", ">= 2.1.2")
   s.add_dependency("rest-client", ">= 1.6.7")
