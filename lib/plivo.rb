@@ -259,13 +259,13 @@ module Plivo
     
     def play(params={})
       call_uuid = params.delete('call_uuid')
-      return request('POST', "/Call/#{call_uuid}/Play/", params) unless noplay
+      return request('POST', "/Call/#{call_uuid}/Play/", params) unless @noplay
       return 200, 'OK'
     end
     
     def stop_play(params={})
       call_uuid = params.delete('call_uuid')
-      return request('DELETE', "/Call/#{call_uuid}/Play/", params) unless noplay
+      return request('DELETE', "/Call/#{call_uuid}/Play/", params) unless @noplay
       return 200, 'OK'
     end
     
@@ -314,20 +314,20 @@ module Plivo
     def play_member(params={})
       conference_name = params.delete('conference_name')
       member_id = params.delete('member_id')
-      return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless noplay
+      return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless @noplay
       return 200, 'OK'
     end
 
     def play_batch(params={})
       conference_name = params.delete('conference_name')
-      return request('POST', "/Conference/#{conference_name}/Member/Play/", params) unless noplay
+      return request('POST', "/Conference/#{conference_name}/Member/Play/", params) unless @noplay
       return 200, 'OK'
     end
     
     def stop_play_member(params={})
       conference_name = params.delete('conference_name')
       member_id = params.delete('member_id')
-      return request('DELETE', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless noplay
+      return request('DELETE', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless @noplay
       return 200, 'OK'
     end
     
