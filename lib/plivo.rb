@@ -28,14 +28,15 @@ module Plivo
   end
 
   class RestAPI
-    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay
+    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay, :noparams
 
-    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false)
+    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false, noparams=false)
       @auth_id = auth_id
       @auth_token = auth_token
       @url = url.chomp('/')
       @version = version
       @noplay = noplay
+      @noparams = noparams
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
       elsif @version == 'iotum-v2'
@@ -52,6 +53,7 @@ module Plivo
     end
 
     def request(method, path, params=nil)
+      params = {} if @noparams
       if method == "POST"
         if not params
           params = {}
