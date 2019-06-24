@@ -28,13 +28,14 @@ module Plivo
   end
 
   class RestAPI
-    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
+    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay
 
-    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="")
+    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false)
       @auth_id = auth_id
       @auth_token = auth_token
       @url = url.chomp('/')
       @version = version
+      @noplay = noplay
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
       elsif @version == 'iotum-v2'
@@ -258,12 +259,14 @@ module Plivo
     
     def play(params={})
       call_uuid = params.delete('call_uuid')
-      return request('POST', "/Call/#{call_uuid}/Play/", params)
+      return request('POST', "/Call/#{call_uuid}/Play/", params) unless noplay
+      return 200, 'OK'
     end
     
     def stop_play(params={})
       call_uuid = params.delete('call_uuid')
-      return request('DELETE', "/Call/#{call_uuid}/Play/", params)
+      return request('DELETE', "/Call/#{call_uuid}/Play/", params) unless noplay
+      return 200, 'OK'
     end
     
     def speak(params={})
@@ -311,18 +314,21 @@ module Plivo
     def play_member(params={})
       conference_name = params.delete('conference_name')
       member_id = params.delete('member_id')
-      return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params)
+      return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless noplay
+      return 200, 'OK'
     end
 
     def play_batch(params={})
       conference_name = params.delete('conference_name')
-      return request('POST', "/Conference/#{conference_name}/Member/Play/", params)
+      return request('POST', "/Conference/#{conference_name}/Member/Play/", params) unless noplay
+      return 200, 'OK'
     end
     
     def stop_play_member(params={})
       conference_name = params.delete('conference_name')
       member_id = params.delete('member_id')
-      return request('DELETE', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params)
+      return request('DELETE', "/Conference/#{conference_name}/Member/#{member_id}/Play/", params) unless noplay
+      return 200, 'OK'
     end
     
     def speak_member(params={})
