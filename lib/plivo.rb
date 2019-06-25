@@ -28,17 +28,15 @@ module Plivo
   end
 
   class RestAPI
-    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay, :noparams
+    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay
 
     # noplay: media service cannot play prompts (or plays its own), ignore play requests with a dummy 200 OK
-    # noparams: media service doesn't expect (perhaps cannot handle) params in POST body or GET or DELETE querystring; remove any not already moved to the url path
-    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false, noparams=false)
+    def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false)
       @auth_id = auth_id
       @auth_token = auth_token
       @url = url.chomp('/')
       @version = version
       @noplay = noplay
-      @noparams = noparams
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
       elsif @version == 'iotum-v2'
@@ -55,7 +53,6 @@ module Plivo
     end
 
     def request(method, path, params=nil)
-      params = {} if @noparams
       if method == "POST"
         if not params
           params = {}
