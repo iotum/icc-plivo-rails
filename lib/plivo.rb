@@ -30,6 +30,8 @@ module Plivo
   class RestAPI
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest, :noplay, :noparams
 
+    # noplay: media service cannot play prompts (or plays its own), ignore play requests with a dyummy 200 OK
+    # noparams: media service doesn't expect (perhaps cannot handle) params in POST body; remove any not already moved to the url path
     def initialize(auth_id, auth_token, url="https://api.plivo.com", version="v1", domain="", noplay=false, noparams=false)
       @auth_id = auth_id
       @auth_token = auth_token
