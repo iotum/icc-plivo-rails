@@ -53,7 +53,7 @@ module Plivo
     end
 
     def request(method, path, params=nil)
-      path = path.chomp('/') if @remove_trailing_slash
+      path.chomp!('/') if @remove_trailing_slash
       if method == "POST"
         if not params
           params = {}
