@@ -37,8 +37,10 @@ module Plivo
       @version = version
       if @version == 'v1'
         @api = "#{@url}/#{@version}/Account/#{@auth_id}"
+        @remove_trailing_slash = false
       elsif @version == 'iotum-v2'
         @api = "#{@url}/v2/Domain/#{domain}"
+        @remove_trailing_slash = true
       else
         raise 'unsupported version'
       end
@@ -51,6 +53,7 @@ module Plivo
     end
 
     def request(method, path, params=nil)
+      path = path.chomp('/') if @remove_trailing_slash
       if method == "POST"
         if not params
           params = {}
