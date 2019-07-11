@@ -69,6 +69,7 @@ module Plivo
         if not response
           code = r.code
           raw = r.to_str
+          raw = '{}' if raw.blank?
           response = JSON.parse(raw)
         end
         return [code, response]
@@ -85,6 +86,7 @@ module Plivo
         if not response
           code = r.code
           raw = r.to_str
+          raw = '{}' if raw.blank?
           response = JSON.parse(raw)
         end
         return [code, response]
