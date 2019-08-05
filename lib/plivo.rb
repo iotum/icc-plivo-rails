@@ -301,12 +301,22 @@ module Plivo
       conference_name = params.delete('conference_name')
       return request('GET', "/Conference/#{conference_name}/", params)
     end
-    
+
     def hangup_conference(params={})
       conference_name = params.delete('conference_name')
       return request('DELETE', "/Conference/#{conference_name}/", params)
     end
-    
+
+    def lock_conference(params={})
+      conference_name = params.delete('conference_name')
+      return request('POST', "/Conference/#{conference_name}/Lock/", params)
+    end
+
+    def unlock_conference(params={})
+      conference_name = params.delete('conference_name')
+      return request('DELETE', "/Conference/#{conference_name}/Lock/", params)
+    end
+
     def hangup_member(params={})
       conference_name = params.delete('conference_name')
       member_id = params.delete('member_id')
