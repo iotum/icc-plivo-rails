@@ -762,7 +762,8 @@ module Plivo
                          'digitsMatch', 'callbackUrl', 'callbackMethod',
                          'stayAlone', 'floorEvent', 'accountRegion',
                          'transcriptionType', 'transcriptionUrl',
-                         'transcriptionMethod', 'recordWhenAlone', 'relayDTMF']
+                         'transcriptionMethod', 'recordWhenAlone', 'relayDTMF',
+                         'useIccNet']
 
     def initialize(body, attributes={})
       if not body
