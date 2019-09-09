@@ -397,6 +397,18 @@ module Plivo
       return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Kick/", params)
     end
     
+    def promote_member(params={})
+      conference_name = params.delete('conference_name')
+      member_id = params.delete('member_id')
+      return request('POST', "/Conference/#{conference_name}/Member/#{member_id}/Moderator/", params)
+    end
+
+    def demote_member(params={})
+      conference_name = params.delete('conference_name')
+      member_id = params.delete('member_id')
+      return request('DELETE', "/Conference/#{conference_name}/Member/#{member_id}/Moderator/", params)
+    end
+
     def record_conference(params={}) 
       conference_name = params.delete('conference_name')
       return request('POST', "/Conference/#{conference_name}/Record/", params)
