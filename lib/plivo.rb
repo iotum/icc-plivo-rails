@@ -775,7 +775,7 @@ module Plivo
                          'stayAlone', 'floorEvent', 'accountRegion',
                          'transcriptionType', 'transcriptionUrl',
                          'transcriptionMethod', 'recordWhenAlone', 'relayDTMF',
-                         'useIccNet']
+                         'useMesh', 'useIccNet']
 
     def initialize(body, attributes={})
       if not body
