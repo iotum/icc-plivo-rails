@@ -784,7 +784,7 @@ module Plivo
                          'timeLimit', 'hangupOnStar', 'maxMembers',
                          'record', 'recordFileFormat', 'action', 'method', 'redirect',
                          'digitsMatch', 'callbackUrl', 'callbackMethod',
-                         'stayAlone', 'floorEvent', 'accountRegion',
+                         'noMOH', 'stayAlone', 'floorEvent', 'accountRegion',
                          'transcriptionType', 'transcriptionUrl',
                          'transcriptionMethod', 'recordWhenAlone', 'relayDTMF',
                          'useMesh', 'useIccNet']
