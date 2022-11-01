@@ -431,6 +431,16 @@ module Plivo
       return request('DELETE', "/Conference/#{conference_name}/Record/", params)
     end
     
+    def start_conference_broadcast(params={}) 
+      conference_name = params.delete('conference_name')
+      return request('POST', "/Conference/#{conference_name}/Broadcast/", params)
+    end
+    
+    def stop_conference_broadcast(params={}) 
+      conference_name = params.delete('conference_name')
+      return request('DELETE', "/Conference/#{conference_name}/Broadcast/", params)
+    end
+    
     ## Recordings ##
     def get_recordings(params={})
       return request('GET', "/Recording/", params)
