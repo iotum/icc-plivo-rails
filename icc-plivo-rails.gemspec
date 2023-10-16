@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name = "icc-plivo-rails"
-  s.version = "0.2.2"
+  s.version = "0.2.3"
   s.author = "Iotum"
-  s.homepage = "https://bitbucket.org/iotum/icc-plivo-rails"
+  s.homepage = "https://github.com/iotum/icc-plivo-rails"
   s.license = "MIT"
   s.description = "A Ruby gem for interacting with the ICC Platform"
   s.platform = Gem::Platform::RUBY
