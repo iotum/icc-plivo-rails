@@ -279,7 +279,7 @@ module Plivo
     
     def send_digits(params={})
       call_uuid = params.delete('call_uuid')
-      return request('POST', "/Call/#{call_uuid}/SendDigits/", params)
+      return request('POST', "/SendDigits/#{call_uuid}/", params)
     end
     
     ## Calls requests ##
