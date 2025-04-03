@@ -749,7 +749,9 @@ module Plivo
 
   class Number < Element
     @nestables = []
-    @valid_attributes = ['sendDigits', 'sendOnPreanswer']
+    @valid_attributes = ['gateways', 'gatewayCodecs', 'gatewayTimeouts',
+                         'gatewayRetries', 'extraDialString', 'sendDigits',
+                         'sendOnPreanswer']
 
     def initialize(body, attributes={})
       if not body
@@ -813,7 +815,7 @@ module Plivo
     @valid_attributes = ['action', 'method', 'timeout','finishOnKey',
                          'maxLength', 'playBeep', 'recordSession',
                          'startOnDialAnswer', 'redirect', 'fileFormat',
-                         'callbackUrl', 'callbackMethod',
+                         'callbackUrl', 'callbackMethod', 'bothLegs',
                          'transcriptionType', 'transcriptionUrl',
                          'transcriptionMethod', 'level']
 
