@@ -243,7 +243,7 @@ module Plivo
     
     def transfer_call(params={})
       call_uuid = params.delete('call_uuid')
-      return request('POST', "/Call/#{call_uuid}/", params)
+      return request('POST', "/Call/#{call_uuid}/Transfer/", params)
     end
     
     def hangup_call(params={})
