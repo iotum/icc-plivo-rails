@@ -440,6 +440,11 @@ module Plivo
       conference_name = params.delete('conference_name')
       return request('DELETE', "/Conference/#{conference_name}/Broadcast/", params)
     end
+
+    def go_live_conference(params={})
+      conference_name = params.delete('conference_name')
+      return request('POST', "/Conference/#{conference_name}/GoLive/", params)
+    end
     
     ## Recordings ##
     def get_recordings(params={})
